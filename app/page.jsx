@@ -40,7 +40,7 @@ export default function Home() {
             <div className="hero-note"><span className="note-symbol">✦</span><span>Consultations every Sunday at Dr. Rungta Clinic, K.G. Road, Ara</span></div>
           </div>
           <div className="hero-art hero-doctor" aria-label="Dr. Sumit Sinha profile">
-            <div className="doctor-photo-wrap"><img className="doctor-photo" src="/doctor-portrait.svg" alt="Portrait of Dr. Sumit Sinha, cardiologist" /></div>
+            <div className="doctor-photo-wrap"><img className="doctor-photo" src="/doctor-portrait.jpg" alt="Portrait of Dr. Sumit Sinha, cardiologist" /></div>
             <div className="hero-doctor-info"><h2>Dr. Sumit Sinha</h2><p>MBBS · MD (Medicine) · DM (Cardiology)</p><span>Interventional Cardiologist</span></div>
           </div>
         </div>
