@@ -27,23 +27,21 @@ export default function Home() {
     <header className="site-header"><div className="container nav">
       <a className="brand" href="#home" aria-label="Dr Sumit Sinha home"><span className="brand-mark">{iconPlus}</span><span><strong className="doctor-name">Dr. Sumit Sinha</strong><small>DM CARDIOLOGY</small></span></a>
       <nav aria-label="Main navigation" className="nav-links"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Clinic & OPD</a></nav>
-      <a className="btn btn-small" href="#clinic">Book a Consultation <span aria-hidden="true">↗</span></a>
+      <a className="btn btn-small" href="#clinic">Consultation <span aria-hidden="true">↗</span></a>
     </div></header>
     <main>
       <section id="home" className="hero">
         <div className="container hero-grid">
           <div className="hero-content">
             <div className="eyebrow"><span className="line" /> INTERVENTIONAL CARDIOLOGIST · ARA</div>
-            <h1>Expertise for your heart.<br/><em>Care that puts you first.</em></h1>
+            <h1>Advanced <em>Heart Care.</em></h1>
             <p className="hero-lead">Advanced cardiology consultation with <strong>Dr. Sumit Sinha</strong>, MBBS, MD (Medicine), DM (Cardiology). Bringing specialist heart care to patients in Ara and Bhojpur.</p>
             <div className="hero-actions"><a className="btn" href="#clinic">View Sunday OPD <span aria-hidden="true">↗</span></a><a className="btn btn-outline" href="#about">Meet the Doctor <span aria-hidden="true">↓</span></a></div>
             <div className="hero-note"><span className="note-symbol">✦</span><span>Consultations every Sunday at Dr. Rungta Clinic, K.G. Road, Ara</span></div>
           </div>
-          <div className="hero-art" aria-label="Stylized cardiology illustration">
-            <div className="art-halo halo-1"/><div className="art-halo halo-2"/>
-            <div className="art-circle"><svg viewBox="0 0 380 380" role="img" aria-label="Heart and ECG illustration"><circle cx="190" cy="190" r="139" fill="#E6F3F3"/><path d="M190 277C120 230 94 200 94 155c0-38 29-65 64-65 22 0 36 11 47 26 11-15 25-26 47-26 35 0 64 27 64 65 0 45-26 75-111 133" fill="#FFF" stroke="#147B85" strokeWidth="8" strokeLinejoin="round"/><path d="M82 191h73l17-36 28 82 22-46h78" fill="none" stroke="#DD736A" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
-            <div className="floating-badge"><span>✚</span><div><strong>Cardiology expertise</strong><small>Precision. Experience. Compassion.</small></div></div>
-            <div className="art-caption">Advancing heart health, one patient at a time.</div>
+          <div className="hero-art hero-doctor" aria-label="Dr. Sumit Sinha profile">
+            <div className="doctor-photo-wrap"><img className="doctor-photo" src="/doctor-portrait.svg" alt="Portrait of Dr. Sumit Sinha, cardiologist" /></div>
+            <div className="hero-doctor-info"><h2>Dr. Sumit Sinha</h2><p>MBBS · MD (Medicine) · DM (Cardiology)</p><span>Interventional Cardiologist</span></div>
           </div>
         </div>
       </section>
@@ -51,7 +49,7 @@ export default function Home() {
         <div><strong>5<span>+</span></strong><small>Years in cardiology</small></div><div><strong>1,000<span>+</span></strong><small>Coronary angioplasties</small></div><div><strong>5,000<span>+</span></strong><small>Coronary angiographies</small></div><div><strong>Sunday</strong><small>Specialist OPD in Ara</small></div>
       </div></section>
       <section id="about" className="section"><div className="container about-grid">
-        <div className="about-visual"><div className="about-pattern"><span className="cross">✚</span><div className="about-card"><div className="about-monogram">DS</div><h3>Dr. Sumit Sinha</h3><p>MBBS · MD (Medicine) · DM (Cardiology)</p><span>Cardiologist & Coronary Intervention Specialist</span></div></div></div>
+
         <div><div className="eyebrow"><span className="line"/> ABOUT THE DOCTOR</div><h2>A foundation in medicine.<br/><em>A focus on your heart.</em></h2><p>Dr. Sumit Sinha completed his MBBS and MD (Medicine) at <strong>Patna Medical College, Patna</strong>, followed by DM (Cardiology) at <strong>RNT Medical College, Government Medical College, Udaipur</strong>.</p><p>With over five years of experience in cardiology, he is currently associated with <strong>Heritage Institute of Medical Sciences, Varanasi</strong>. His interventional experience includes complex coronary angioplasty involving CTO, bifurcation and left main disease.</p>
           <div className="qualification-list"><div><span>01</span><p><strong>MBBS & MD (Medicine)</strong><small>Patna Medical College, Patna</small></p></div><div><span>02</span><p><strong>DM (Cardiology)</strong><small>RNT Medical College, Udaipur</small></p></div><div><span>03</span><p><strong>Current Association</strong><small>Heritage Institute of Medical Sciences, Varanasi</small></p></div></div>
         </div>
