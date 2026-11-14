@@ -7,3 +7,28 @@
 .brand .doctor-name{white-space:nowrap;overflow-wrap:normal;font-size:clamp(.86rem,2.35vw,1.12rem);letter-spacing:-.025em}
 .footer-brand .doctor-name{white-space:nowrap;overflow-wrap:normal;font-size:clamp(1.05rem,3.5vw,1.45rem)}
 @media(max-width:390px){.nav{gap:8px}.brand{gap:7px}.brand-mark{width:32px;height:32px;flex:0 0 32px}.brand-mark svg{width:21px}.brand small{font-size:.49rem;letter-spacing:.08em}.site-header .btn-small{font-size:.65rem;padding:8px 9px;gap:4px}.brand .doctor-name{font-size:.84rem}}
+
+/* Red + original teal hybrid palette: teal headline/CTA, burgundy medical accents. */
+:root{--navy:#173e50;--dark:#123342;--teal:#187c85;--text:#334a54;--muted:#68808a;--line:#eadde0;--pale:#f6f5f4}
+.topbar,.metric-section,.clinic-card,.footer{background:#781b30}
+.brand-mark{background:#fff0f3;color:#b32744}
+.eyebrow,.service-num,.qualification-list>div>span{color:#b32744}
+.eyebrow .line{background:#b32744}
+.hero{background:linear-gradient(110deg,#fff6f7 0%,#f8fcfb 54%,#e8f4f1 100%)}
+.hero h1{font-size:clamp(3.4rem,5.7vw,5.75rem);line-height:1.1;white-space:normal}
+.hero h1 em{white-space:normal}
+.hero-doctor{height:auto;min-height:490px;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:16px 0}
+.doctor-photo-wrap{width:min(355px,82%);aspect-ratio:1;border-radius:50%;overflow:hidden;background:#f6e2e6;border:9px solid #fff;outline:3px solid #e4aeb9;box-shadow:0 25px 70px #781b3026;flex-shrink:0}
+.doctor-photo{width:100%;height:100%;object-fit:cover;object-position:center 29%;display:block}
+.hero-doctor-info{text-align:center;background:#fff;border:1px solid #efdfe2;border-radius:13px;padding:15px 20px;box-shadow:0 16px 45px #781b3012;width:min(420px,100%)}
+.hero-doctor-info h2{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(1.1rem,2.1vw,1.55rem);font-weight:800;white-space:nowrap;letter-spacing:-.02em;margin:0 0 4px;color:#173e50}
+.hero-doctor-info p{font-size:.78rem;margin:0 0 5px;color:#4b616a}
+.hero-doctor-info span{color:#b32744;font-weight:800;font-size:.76rem}
+.about-grid{display:block;max-width:850px}
+.about-grid>div{max-width:850px}
+.about-visual{display:none}
+.care-banner{background:#187c85}
+.site-header .btn{background:#187c85;border-color:#187c85;color:#fff}
+.site-header .btn:hover{background:#12616b}
+@media(max-width:780px){.hero-doctor{min-height:0;padding:12px 0 25px}.doctor-photo-wrap{width:min(290px,78vw)}.hero-doctor-info{width:min(420px,95%)}.hero h1{font-size:clamp(2.7rem,9vw,4.3rem)}}
+@media(max-width:420px){.doctor-photo-wrap{width:min(270px,78vw)}.hero-doctor-info h2{font-size:1.18rem}}
