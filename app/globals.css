@@ -32,3 +32,71 @@
 .site-header .btn:hover{background:#12616b}
 @media(max-width:780px){.hero-doctor{min-height:0;padding:12px 0 25px}.doctor-photo-wrap{width:min(290px,78vw)}.hero-doctor-info{width:min(420px,95%)}.hero h1{font-size:clamp(2.7rem,9vw,4.3rem)}}
 @media(max-width:420px){.doctor-photo-wrap{width:min(270px,78vw)}.hero-doctor-info h2{font-size:1.18rem}}
+
+/* Reference-inspired mobile layout: clean header, split hero, cards and persistent CTA. */
+.mobile-menu,.mobile-specialties,.mobile-bottom-actions{display:none}
+.quick-facts-section{position:relative;z-index:2;background:linear-gradient(180deg,#f6fbfb,#fff);padding:0 0 30px}
+.quick-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid #e5eeef;border-radius:22px;box-shadow:0 16px 38px #173e5014;overflow:hidden;transform:translateY(-18px)}
+.quick-fact{display:flex;align-items:center;gap:13px;padding:24px 19px;color:#173e50;font-size:.87rem;line-height:1.4;font-weight:700}
+.quick-fact + .quick-fact{border-left:1px solid #edf1f2}
+.quick-icon{width:43px;flex:0 0 43px;height:43px;display:grid;place-items:center;color:#188f8e;font-size:1.9rem;font-weight:500}
+.hero-doctor{position:relative}
+@media(max-width:780px){
+ .topbar{display:none}
+ .site-header .nav{height:77px}
+ .nav-consultation{display:none!important}
+ .mobile-menu{display:block;position:relative;margin-left:auto}
+ .mobile-menu summary{width:42px;height:42px;display:flex;flex-direction:column;justify-content:center;gap:6px;align-items:center;cursor:pointer;list-style:none}
+ .mobile-menu summary::-webkit-details-marker{display:none}
+ .mobile-menu summary span{width:27px;height:3px;background:#173e50;border-radius:4px;display:block}
+ .mobile-menu-links{position:absolute;right:0;top:49px;min-width:190px;background:white;border:1px solid #e1e9e9;border-radius:12px;box-shadow:0 18px 42px #173e5022;display:flex;flex-direction:column;padding:9px}
+ .mobile-menu-links a{padding:11px 14px;color:#173e50;font-weight:700;font-size:.85rem;border-radius:7px}
+ .mobile-menu-links a:hover{background:#eef9f7}
+ .hero{background:linear-gradient(135deg,#fcffff 7%,#e8f7f8 80%,#f8eaf0 100%)}
+ .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:6px;padding-top:42px;padding-bottom:35px;align-items:center}
+ .hero-content{min-width:0;z-index:2}
+ .hero .eyebrow{font-size:.56rem;letter-spacing:.07em;gap:5px}
+ .hero .eyebrow .line{width:15px}
+ .hero h1{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(1.72rem,6.9vw,3.65rem);font-weight:800;letter-spacing:-.055em;line-height:1.15;margin:15px 0}
+ .hero h1 em{font-style:normal;color:#187c85;font-weight:800}
+ .hero-lead{font-size:clamp(.72rem,2.4vw,.94rem);line-height:1.5;margin:0}
+ .hero-actions{margin:16px 0 0}
+ .hero-actions .btn{width:auto;font-size:.75rem;padding:11px 12px;gap:7px}
+ .hero-actions .btn-outline{display:none}
+ .hero-note{display:none}
+ .hero-doctor{min-height:0;height:340px;padding:0;align-self:end;justify-content:flex-end;gap:0}
+ .doctor-photo-wrap{width:100%;max-width:245px;aspect-ratio:3/4;border-radius:130px 130px 12px 12px;border:0;outline:0;box-shadow:none;background:transparent}
+ .doctor-photo{object-position:center 20%}
+ .hero-doctor-info{position:absolute;bottom:-24px;width:112%;padding:8px 6px;max-width:none;box-shadow:0 9px 26px #173e501a}
+ .hero-doctor-info h2{font-size:clamp(.8rem,2.4vw,1rem)}
+ .hero-doctor-info p{font-size:.61rem;line-height:1.3}
+ .hero-doctor-info span{font-size:.58rem}
+ .quick-facts-section{padding:38px 0 14px;background:#fff}
+ .quick-facts{transform:none;grid-template-columns:repeat(2,1fr);border-radius:19px}
+ .quick-fact{padding:16px 9px;font-size:.73rem;gap:5px}
+ .quick-fact:nth-child(3){border-left:0;border-top:1px solid #edf1f2}
+ .quick-fact:nth-child(4){border-top:1px solid #edf1f2}
+ .quick-icon{width:38px;flex-basis:38px;font-size:1.5rem}
+ .mobile-specialties{display:block;padding:24px 0 48px;background:#fff}
+ .mobile-specialties h2{font-family:'DM Sans',Arial,sans-serif;font-weight:800;font-size:clamp(1.7rem,6vw,2.6rem);margin:8px 0 16px;letter-spacing:-.04em}
+ .mobile-specialty-scroll{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 0 14px;scrollbar-width:thin}
+ .mobile-specialty{scroll-snap-align:start;min-width:145px;flex:0 0 42%;min-height:138px;border:1px solid #e0e9e9;border-radius:17px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px;padding:15px;color:#173e50;line-height:1.28;font-weight:800;font-size:.86rem;background:#fff}
+ .mobile-specialty span{font-size:2.3rem;color:#188f8e;font-weight:400}
+ .metric-section{display:none}
+ .mobile-bottom-actions{position:fixed;bottom:0;left:0;right:0;padding:11px max(15px,env(safe-area-inset-left)) calc(11px + env(safe-area-inset-bottom)) max(15px,env(safe-area-inset-right));background:#ffffffed;box-shadow:0 -8px 35px #173e501b;z-index:30;display:flex;gap:10px}
+ .mobile-bottom-primary,.mobile-bottom-map{background:#148b88;color:white;border-radius:14px;min-height:55px;display:flex;align-items:center;justify-content:center;gap:13px;font-weight:800;font-size:1rem}
+ .mobile-bottom-primary{flex:1}
+ .mobile-bottom-map{flex:0 0 62px;font-size:1.8rem}
+ .footer{padding-bottom:83px}
+}
+@media(max-width:420px){
+ .hero-grid{padding-top:28px;gap:3px}
+ .hero h1{font-size:clamp(1.65rem,7vw,2.25rem)}
+ .hero-doctor{height:278px}
+ .hero .eyebrow{font-size:.5rem}
+ .hero-lead{font-size:.72rem}
+ .hero-actions .btn{font-size:.69rem;padding:10px}
+ .hero-doctor-info{bottom:-20px}
+ .quick-fact{font-size:.68rem}
+ .mobile-specialty{min-width:132px}
+}
