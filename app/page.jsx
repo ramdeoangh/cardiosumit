@@ -27,16 +27,17 @@ export default function Home() {
     <header className="site-header"><div className="container nav">
       <a className="brand" href="#home" aria-label="Dr Sumit Sinha home"><span className="brand-mark">{iconPlus}</span><span><strong className="doctor-name">Dr. Sumit Sinha</strong><small>DM CARDIOLOGY</small></span></a>
       <nav aria-label="Main navigation" className="nav-links"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Clinic & OPD</a></nav>
-      <a className="btn btn-small" href="#clinic">Consultation <span aria-hidden="true">↗</span></a>
+      <a className="btn btn-small nav-consultation" href="#clinic">Consultation <span aria-hidden="true">↗</span></a>
+      <details className="mobile-menu"><summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary><div className="mobile-menu-links"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Sunday OPD</a></div></details>
     </div></header>
     <main>
       <section id="home" className="hero">
         <div className="container hero-grid">
           <div className="hero-content">
             <div className="eyebrow"><span className="line" /> INTERVENTIONAL CARDIOLOGIST · ARA</div>
-            <h1>Advanced <em>Heart Care.</em></h1>
-            <p className="hero-lead">Advanced cardiology consultation with <strong>Dr. Sumit Sinha</strong>, MBBS, MD (Medicine), DM (Cardiology). Bringing specialist heart care to patients in Ara and Bhojpur.</p>
-            <div className="hero-actions"><a className="btn" href="#clinic">View Sunday OPD <span aria-hidden="true">↗</span></a><a className="btn btn-outline" href="#about">Meet the Doctor <span aria-hidden="true">↓</span></a></div>
+            <h1>Personalized <em>Heart Care.</em></h1>
+            <p className="hero-lead">Specialist cardiology consultation in Ara with <strong>Dr. Sumit Sinha</strong>, MBBS, MD (Medicine), DM (Cardiology).</p>
+            <div className="hero-actions"><a className="btn" href="#clinic"><span aria-hidden="true">▦</span> Consultation <span aria-hidden="true">↗</span></a><a className="btn btn-outline" href="#about">Meet the Doctor <span aria-hidden="true">↓</span></a></div>
             <div className="hero-note"><span className="note-symbol">✦</span><span>Consultations every Sunday at Dr. Rungta Clinic, K.G. Road, Ara</span></div>
           </div>
           <div className="hero-art hero-doctor" aria-label="Dr. Sumit Sinha profile">
@@ -45,6 +46,21 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="quick-facts-section" aria-label="About this practice"><div className="container"><div className="quick-facts">
+        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">✚</span><span>Personalized<br/>cardiac care</span></div>
+        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">◇</span><span>DM Cardiology<br/>qualification</span></div>
+        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">♥</span><span>Interventional<br/>experience</span></div>
+        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">⌖</span><span>Sunday OPD<br/>in Ara, Bihar</span></div>
+      </div></div></section>
+      <section className="mobile-specialties" aria-label="Cardiology specialties"><div className="container">
+        <div className="eyebrow"><span className="line" /> WHAT WE OFFER</div><h2>Our <em>Specialties</em></h2>
+        <div className="mobile-specialty-scroll">
+          <a href="#services" className="mobile-specialty"><span aria-hidden="true">♡</span>Clinical Cardiology</a>
+          <a href="#expertise" className="mobile-specialty"><span aria-hidden="true">✚</span>Coronary Angioplasty</a>
+          <a href="#services" className="mobile-specialty"><span aria-hidden="true">⌁</span>Preventive Cardiology</a>
+          <a href="#services" className="mobile-specialty"><span aria-hidden="true">◉</span>Echocardiography</a>
+        </div>
+      </div></section>
       <section className="metric-section" aria-label="Experience at a glance"><div className="container metric-grid">
         <div><strong>5<span>+</span></strong><small>Years in cardiology</small></div><div><strong>1,000<span>+</span></strong><small>Coronary angioplasties</small></div><div><strong>5,000<span>+</span></strong><small>Coronary angiographies</small></div><div><strong>Sunday</strong><small>Specialist OPD in Ara</small></div>
       </div></section>
@@ -59,6 +75,7 @@ export default function Home() {
       <section className="care-banner"><div className="container care-banner-inner"><div><span className="mini-label">आपके दिल की सेहत, हमारी प्राथमिकता</span><h2>Specialist heart care,<br/>closer to home.</h2><p>Sunday consultations in Ara for patients from Ara, Bhojpur and surrounding communities.</p></div><a className="btn btn-light" href="#clinic">Clinic Location <span aria-hidden="true">↗</span></a></div></section>
       <section id="clinic" className="section clinic-section"><div className="container"><div className="eyebrow"><span className="line"/> PLAN YOUR VISIT</div><h2>Sunday Cardiology OPD<br/><em>in Ara, Bihar.</em></h2><div className="clinic-grid"><div className="clinic-card"><span className="mini-label">CONSULTATION LOCATION</span><h3>Dr. Rungta Clinic</h3><p>K.G. Road, Ara<br/>Bhojpur, Bihar</p><div className="clinic-info"><div><span>OPD DAY</span><strong>Every Sunday</strong></div><div><span>CONSULTANT</span><strong>Dr. Sumit Sinha, DM Cardiology</strong></div><div><span>TIMINGS</span><strong>Please confirm with the clinic</strong></div></div><div className="clinic-actions"><a className="btn" href={mapHref} target="_blank" rel="noopener noreferrer">Find on Google Maps ↗</a>{phoneHref && <a className="btn btn-outline" href={phoneHref}>Call for appointment</a>}{whatsappHref && <a className="btn btn-outline" href={whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp enquiry</a>}</div>{!phoneHref && <p className="contact-pending">Appointment phone number will be updated shortly. Please confirm before visiting.</p>}</div><div className="visit-help"><div className="visit-graphic"><span className="visit-cross">✚</span><div className="visit-heart">{iconPlus}</div></div><h3>Before your appointment</h3><p>Bring your past prescriptions, ECG, echo or angiography reports and a list of current medications, if available.</p><div className="emergency"><strong>Medical emergency?</strong><p>For severe or ongoing chest pain, sudden breathlessness or fainting, seek emergency medical care immediately. Do not wait for Sunday OPD.</p></div></div></div></div></section>
       <section className="section faq-section"><div className="container faq-grid"><div><div className="eyebrow"><span className="line"/> USEFUL INFORMATION</div><h2>Frequently asked<br/><em>questions.</em></h2></div><div className="faq-list">{faqs.map(([question,answer])=><details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></div></section>
+      <div className="mobile-bottom-actions"><a className="mobile-bottom-primary" href="#clinic"><span aria-hidden="true">▦</span> Consultation</a><a className="mobile-bottom-map" href={mapHref} target="_blank" rel="noopener noreferrer" aria-label="View clinic location on Google Maps">⌖</a></div>
     </main>
     <footer className="footer"><div className="container"><div className="footer-main"><div><div className="footer-brand">{iconPlus}<strong className="doctor-name">Dr. Sumit Sinha</strong></div><p>MBBS · MD (Medicine) · DM (Cardiology)</p><p>Sunday OPD · Dr. Rungta Clinic, K.G. Road, Ara</p></div><div className="footer-nav"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Visit Clinic</a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Dr. Sumit Sinha. All rights reserved.</span><span>Information is educational and does not replace medical evaluation.</span></div></div></footer>
   </>;
