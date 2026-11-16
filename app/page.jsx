@@ -41,7 +41,7 @@ export default function Home() {
           <div className="hero-actions"><a className="button" href="#clinic">Sunday Consultation <span>→</span></a><a className="text-link" href="#about">Meet the doctor <span>↓</span></a></div>
           <div className="availability"><span className="calendar-icon" aria-hidden="true">✚</span><p><strong>Every Sunday</strong><small>Dr. Rungta Clinic · K.G. Road, Ara</small></p></div>
         </div>
-        <div className="portrait-side"><div className="halo"/><img src="/doctor-portrait.jpg" alt="Dr. Sumit Sinha, cardiologist" className="portrait"/><div className="portrait-card"><span className="status-dot"/><p><strong>Dr. Sumit Sinha</strong><small>MBBS · MD (Medicine) · DM (Cardiology)</small></p></div><span className="portrait-cross" aria-hidden="true">{cross}</span></div>
+        <div className="portrait-side"><div className="halo"/><img src="/doctor-portrait.jpeg" alt="Dr. Sumit Sinha, cardiologist" className="portrait"/><div className="portrait-card"><span className="status-dot"/><p><strong>Dr. Sumit Sinha</strong><small>MBBS · MD (Medicine) · DM (Cardiology)</small></p></div><span className="portrait-cross" aria-hidden="true">{cross}</span></div>
       </div>
       <div className="shell trust-strip">
         <div><span className="trust-icon">✚</span><p><strong>DM Cardiology</strong><small>Specialist qualification</small></p></div>
