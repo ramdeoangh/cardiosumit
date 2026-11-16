@@ -1,82 +1,76 @@
 import { site } from "../lib/site";
 
-const services = [
-  { number: "01", title: "Cardiology Consultation", description: "Assessment of chest discomfort, breathlessness, palpitations and other cardiovascular symptoms." },
-  { number: "02", title: "Coronary Artery Disease", description: "Evaluation and individualized management of established or suspected coronary artery disease." },
-  { number: "03", title: "2D Echocardiography", description: "Ultrasound assessment of heart structure and function when medically indicated." },
-  { number: "04", title: "Hypertension & Prevention", description: "Cardiovascular risk assessment, blood pressure, cholesterol and diabetes-related heart health." },
-  { number: "05", title: "Complex Coronary Interventions", description: "Experience in complex angioplasty including chronic total occlusion (CTO) and bifurcation PCI." },
-  { number: "06", title: "Left Main Coronary Disease", description: "Specialist assessment and interventional experience in left main coronary artery disease." }
+const cross = <svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><path d="M18 4h12v14h14v12H30v14H18V30H4V18h14z"/></svg>;
+const specialties = [
+  ["♡","Clinical Cardiology","Evaluation of chest pain, palpitations, breathlessness and other cardiac symptoms."],
+  ["↗","Coronary Angioplasty","Experience in coronary angioplasty and interventional cardiology."],
+  ["⌁","Preventive Cardiology","Risk management for hypertension, cholesterol, diabetes and heart health."],
+  ["◉","2D Echocardiography","Cardiac ultrasound assessment when medically indicated."],
+  ["✚","Complex PCI","Experience with CTO, bifurcation and left main coronary interventions."],
+  ["◇","Coronary Artery Disease","Assessment and individualized management of coronary artery disease."],
 ];
-const faqs = [
-  ["Where does Dr. Sumit consult in Ara?", "Sunday cardiology consultation takes place at Dr. Rungta Clinic, K.G. Road, Ara, Bhojpur, Bihar."],
-  ["Which day is the cardiology OPD available?", "The Ara OPD is held on Sundays. Contact the clinic to confirm the current hours and appointment availability."],
-  ["Is echocardiography available?", "2D echocardiography is offered as part of cardiac evaluation when clinically appropriate. Confirm availability when booking."],
-  ["Does an appointment replace emergency care?", "No. For severe or ongoing chest pain, sudden breathlessness, fainting or other urgent symptoms, seek emergency medical attention immediately."],
-];
-const iconPlus = <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M26 8h12v18h18v12H38v18H26V38H8V26h18V8Z" fill="currentColor"/></svg>;
-const phoneHref = site.phone ? "tel:" + site.phone.replace(/[^+0-9]/g, "") : null;
-const whatsappHref = site.whatsapp ? "https://wa.me/" + site.whatsapp.replace(/\D/g,"") + "?text=" + encodeURIComponent("Hello, I would like to enquire about the Sunday cardiology OPD in Ara.") : null;
-const mapHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(site.clinic + ", " + site.address);
-const schema = { "@context": "https://schema.org", "@type": "Physician", name: site.name, description: "MBBS, MD Medicine, DM Cardiology. Sunday OPD at Dr. Rungta Clinic, Ara.", medicalSpecialty: "Cardiovascular", areaServed: [{ "@type": "City", name: "Ara" }, { "@type": "AdministrativeArea", name: "Bhojpur" }], address: { "@type": "PostalAddress", streetAddress: "K.G. Road", addressLocality: "Ara", addressRegion: "Bihar", addressCountry: "IN" }, ...(site.phone ? { telephone: site.phone } : {}) };
-
+const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(site.clinic + ", " + site.address);
+const callUrl = site.phone ? "tel:" + site.phone.replace(/[^+0-9]/g, "") : null;
+const whatsappUrl = site.whatsapp ? "https://wa.me/" + site.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent("Hello, I would like to enquire about the Sunday cardiology OPD in Ara.") : null;
+const structuredData = {
+  "@context":"https://schema.org",
+  "@type":"Physician",
+  name:site.name,
+  medicalSpecialty:"Cardiovascular",
+  description:"MBBS, MD (Medicine), DM (Cardiology). Sunday cardiology OPD at Dr. Rungta Clinic in Ara, Bihar.",
+  address:{"@type":"PostalAddress",streetAddress:"K.G. Road",addressLocality:"Ara",addressRegion:"Bihar",addressCountry:"IN"},
+  ...(site.phone ? {telephone:site.phone}:{})
+};
 export default function Home() {
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-    <div className="topbar"><div className="container topbar-inner"><span><span className="pulse-dot" /> Sunday Cardiology OPD · Ara, Bihar</span><span className="topbar-note">For appointments, contact the clinic</span></div></div>
-    <header className="site-header"><div className="container nav">
-      <a className="brand" href="#home" aria-label="Dr Sumit Sinha home"><span className="brand-mark">{iconPlus}</span><span><strong className="doctor-name">Dr. Sumit Sinha</strong><small>DM CARDIOLOGY</small></span></a>
-      <nav aria-label="Main navigation" className="nav-links"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Clinic & OPD</a></nav>
-      <a className="btn btn-small nav-consultation" href="#clinic">Consultation <span aria-hidden="true">↗</span></a>
-      <details className="mobile-menu"><summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary><div className="mobile-menu-links"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Sunday OPD</a></div></details>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,"\\u003c")}}/>
+    <a href="#main" className="skip-link">Skip to content</a>
+    <div className="notice"><div className="shell notice-inner"><span><i className="pulse"/> Sunday Cardiology OPD · Ara, Bihar</span><span className="notice-extra">Appointments: contact the clinic</span></div></div>
+    <header className="header" id="home"><div className="shell nav-wrap">
+      <a className="brand" href="#home" aria-label="Dr. Sumit Sinha homepage"><span className="brand-icon">{cross}</span><span className="brand-words"><strong>Cardio<span>Sumit</span></strong><small>Dr. Sumit Sinha · DM Cardiology</small></span></a>
+      <nav className="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Clinic</a></nav>
+      <a className="button nav-cta" href="#clinic">Consultation <span>↗</span></a>
+      <details className="mobile-menu"><summary aria-label="Toggle navigation"><span/><span/><span/></summary><nav aria-label="Mobile navigation"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Sunday OPD</a></nav></details>
     </div></header>
-    <main>
-      <section id="home" className="hero">
-        <div className="container hero-grid">
-          <div className="hero-content">
-            <div className="eyebrow"><span className="line" /> INTERVENTIONAL CARDIOLOGIST · ARA</div>
-            <h1>Personalized <em>Heart Care.</em></h1>
-            <p className="hero-lead">Specialist cardiology consultation in Ara with <strong>Dr. Sumit Sinha</strong>, MBBS, MD (Medicine), DM (Cardiology).</p>
-            <div className="hero-actions"><a className="btn" href="#clinic"><span aria-hidden="true">▦</span> Consultation <span aria-hidden="true">↗</span></a><a className="btn btn-outline" href="#about">Meet the Doctor <span aria-hidden="true">↓</span></a></div>
-            <div className="hero-note"><span className="note-symbol">✦</span><span>Consultations every Sunday at Dr. Rungta Clinic, K.G. Road, Ara</span></div>
-          </div>
-          <div className="hero-art hero-doctor" aria-label="Dr. Sumit Sinha profile">
-            <div className="doctor-photo-wrap"><img className="doctor-photo" src="/doctor-portrait.jpg" alt="Portrait of Dr. Sumit Sinha, cardiologist" /></div>
-            <div className="hero-doctor-info"><h2>Dr. Sumit Sinha</h2><p>MBBS · MD (Medicine) · DM (Cardiology)</p><span>Interventional Cardiologist</span></div>
-          </div>
+    <main id="main">
+      <section className="hero"><div className="shell hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow"><span/> Interventional cardiologist · Ara</p>
+          <h1>Expert heart care.<br/><em>Closer to home.</em></h1>
+          <p className="lead">Specialist cardiology consultation with <strong>Dr. Sumit Sinha</strong>—bringing cardiovascular care to Ara, Bhojpur and nearby communities.</p>
+          <div className="hero-actions"><a className="button" href="#clinic">Sunday Consultation <span>→</span></a><a className="text-link" href="#about">Meet the doctor <span>↓</span></a></div>
+          <div className="availability"><span className="calendar-icon" aria-hidden="true">✚</span><p><strong>Every Sunday</strong><small>Dr. Rungta Clinic · K.G. Road, Ara</small></p></div>
         </div>
-      </section>
-      <section className="quick-facts-section" aria-label="About this practice"><div className="container"><div className="quick-facts">
-        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">✚</span><span>Personalized<br/>cardiac care</span></div>
-        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">◇</span><span>DM Cardiology<br/>qualification</span></div>
-        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">♥</span><span>Interventional<br/>experience</span></div>
-        <div className="quick-fact"><span className="quick-icon" aria-hidden="true">⌖</span><span>Sunday OPD<br/>in Ara, Bihar</span></div>
-      </div></div></section>
-      <section className="mobile-specialties" aria-label="Cardiology specialties"><div className="container">
-        <div className="eyebrow"><span className="line" /> WHAT WE OFFER</div><h2>Our <em>Specialties</em></h2>
-        <div className="mobile-specialty-scroll">
-          <a href="#services" className="mobile-specialty"><span aria-hidden="true">♡</span>Clinical Cardiology</a>
-          <a href="#expertise" className="mobile-specialty"><span aria-hidden="true">✚</span>Coronary Angioplasty</a>
-          <a href="#services" className="mobile-specialty"><span aria-hidden="true">⌁</span>Preventive Cardiology</a>
-          <a href="#services" className="mobile-specialty"><span aria-hidden="true">◉</span>Echocardiography</a>
-        </div>
+        <div className="portrait-side"><div className="halo"/><img src="/doctor-portrait.jpg" alt="Dr. Sumit Sinha, cardiologist" className="portrait"/><div className="portrait-card"><span className="status-dot"/><p><strong>Dr. Sumit Sinha</strong><small>MBBS · MD (Medicine) · DM (Cardiology)</small></p></div><span className="portrait-cross" aria-hidden="true">{cross}</span></div>
+      </div>
+      <div className="shell trust-strip">
+        <div><span className="trust-icon">✚</span><p><strong>DM Cardiology</strong><small>Specialist qualification</small></p></div>
+        <div><span className="trust-icon">05</span><p><strong>5+ years</strong><small>Cardiology experience</small></p></div>
+        <div><span className="trust-icon">1K</span><p><strong>1,000+</strong><small>Coronary angioplasties</small></p></div>
+        <div><span className="trust-icon">⌖</span><p><strong>Sunday OPD</strong><small>Ara, Bihar</small></p></div>
       </div></section>
-      <section className="metric-section" aria-label="Experience at a glance"><div className="container metric-grid">
-        <div><strong>5<span>+</span></strong><small>Years in cardiology</small></div><div><strong>1,000<span>+</span></strong><small>Coronary angioplasties</small></div><div><strong>5,000<span>+</span></strong><small>Coronary angiographies</small></div><div><strong>Sunday</strong><small>Specialist OPD in Ara</small></div>
+      <section id="about" className="section about"><div className="shell about-grid">
+        <div className="section-heading"><p className="eyebrow"><span/> About the doctor</p><h2>Clinical experience,<br/><em>patient-focused care.</em></h2></div>
+        <div className="about-copy"><p className="intro">Dr. Sumit Sinha is an interventional cardiologist with experience in complex coronary procedures and cardiovascular care.</p><p>He completed MBBS and MD (Medicine) from <strong>Patna Medical College, Patna</strong>, and DM (Cardiology) from <strong>RNT Medical College, Government Medical College, Udaipur</strong>. He is currently associated with <strong>Heritage Institute of Medical Sciences, Varanasi</strong>.</p>
+          <div className="credentials">
+            <article><b>01</b><p><strong>MBBS &amp; MD (Medicine)</strong><small>Patna Medical College, Patna</small></p></article>
+            <article><b>02</b><p><strong>DM (Cardiology)</strong><small>RNT Medical College, Udaipur</small></p></article>
+            <article><b>03</b><p><strong>Current association</strong><small>Heritage Institute of Medical Sciences, Varanasi</small></p></article>
+          </div></div>
       </div></section>
-      <section id="about" className="section"><div className="container about-grid">
-
-        <div><div className="eyebrow"><span className="line"/> ABOUT THE DOCTOR</div><h2>A foundation in medicine.<br/><em>A focus on your heart.</em></h2><p>Dr. Sumit Sinha completed his MBBS and MD (Medicine) at <strong>Patna Medical College, Patna</strong>, followed by DM (Cardiology) at <strong>RNT Medical College, Government Medical College, Udaipur</strong>.</p><p>With over five years of experience in cardiology, he is currently associated with <strong>Heritage Institute of Medical Sciences, Varanasi</strong>. His interventional experience includes complex coronary angioplasty involving CTO, bifurcation and left main disease.</p>
-          <div className="qualification-list"><div><span>01</span><p><strong>MBBS & MD (Medicine)</strong><small>Patna Medical College, Patna</small></p></div><div><span>02</span><p><strong>DM (Cardiology)</strong><small>RNT Medical College, Udaipur</small></p></div><div><span>03</span><p><strong>Current Association</strong><small>Heritage Institute of Medical Sciences, Varanasi</small></p></div></div>
-        </div>
+      <section id="expertise" className="section expertise"><div className="shell">
+        <div className="split-heading"><div><p className="eyebrow light"><span/> Specialist experience</p><h2>Advanced coronary<br/><em>intervention.</em></h2></div><p>Experience in more than 5,000 coronary angiographies and 1,000 angioplasties, including complex coronary interventions. Treatment decisions follow individual clinical assessment.</p></div>
+        <div className="expertise-cards"><article><span>01 / CTO</span><div className="line-art">↗</div><h3>Chronic Total Occlusion</h3><p>Angioplasty experience for chronically blocked coronary arteries.</p></article><article><span>02 / BIFURCATION</span><div className="line-art">Y</div><h3>Bifurcation PCI</h3><p>Interventional experience involving coronary artery branch points.</p></article><article><span>03 / LEFT MAIN</span><div className="line-art">⌁</div><h3>Left Main Disease</h3><p>Experience in complex left main coronary interventions.</p></article></div>
       </div></section>
-      <section id="expertise" className="expertise-section section"><div className="container"><div className="split-head"><div><div className="eyebrow"><span className="line" /> SPECIALIST EXPERIENCE</div><h2>Advanced coronary<br/><em>intervention experience.</em></h2></div><p>Experience with complex coronary anatomy and interventional procedures. Every treatment decision requires a personalized clinical assessment.</p></div><div className="expertise-grid"><article><span>01 / CTO</span><h3>Chronic Total Occlusion</h3><p>Experience with angioplasty for chronically blocked coronary arteries.</p></article><article><span>02 / BIFURCATION</span><h3>Bifurcation PCI</h3><p>Interventional experience involving coronary artery branch points.</p></article><article><span>03 / LEFT MAIN</span><h3>Left Main Disease</h3><p>Specialist experience in interventions for left main coronary artery disease.</p></article></div></div></section>
-      <section id="services" className="section services-section"><div className="container"><div className="eyebrow"><span className="line"/> HOW WE CAN HELP</div><div className="split-head"><h2>Comprehensive<br/><em>cardiology services.</em></h2><p>From preventive care to specialist cardiovascular assessment, with investigations and treatment planning based on clinical need.</p></div><div className="services-grid">{services.map(service=><article className="service" key={service.number}><span className="service-num">{service.number}</span><h3>{service.title}</h3><p>{service.description}</p><span className="service-plus" aria-hidden="true">↗</span></article>)}</div></div></section>
-      <section className="care-banner"><div className="container care-banner-inner"><div><span className="mini-label">आपके दिल की सेहत, हमारी प्राथमिकता</span><h2>Specialist heart care,<br/>closer to home.</h2><p>Sunday consultations in Ara for patients from Ara, Bhojpur and surrounding communities.</p></div><a className="btn btn-light" href="#clinic">Clinic Location <span aria-hidden="true">↗</span></a></div></section>
-      <section id="clinic" className="section clinic-section"><div className="container"><div className="eyebrow"><span className="line"/> PLAN YOUR VISIT</div><h2>Sunday Cardiology OPD<br/><em>in Ara, Bihar.</em></h2><div className="clinic-grid"><div className="clinic-card"><span className="mini-label">CONSULTATION LOCATION</span><h3>Dr. Rungta Clinic</h3><p>K.G. Road, Ara<br/>Bhojpur, Bihar</p><div className="clinic-info"><div><span>OPD DAY</span><strong>Every Sunday</strong></div><div><span>CONSULTANT</span><strong>Dr. Sumit Sinha, DM Cardiology</strong></div><div><span>TIMINGS</span><strong>Please confirm with the clinic</strong></div></div><div className="clinic-actions"><a className="btn" href={mapHref} target="_blank" rel="noopener noreferrer">Find on Google Maps ↗</a>{phoneHref && <a className="btn btn-outline" href={phoneHref}>Call for appointment</a>}{whatsappHref && <a className="btn btn-outline" href={whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp enquiry</a>}</div>{!phoneHref && <p className="contact-pending">Appointment phone number will be updated shortly. Please confirm before visiting.</p>}</div><div className="visit-help"><div className="visit-graphic"><span className="visit-cross">✚</span><div className="visit-heart">{iconPlus}</div></div><h3>Before your appointment</h3><p>Bring your past prescriptions, ECG, echo or angiography reports and a list of current medications, if available.</p><div className="emergency"><strong>Medical emergency?</strong><p>For severe or ongoing chest pain, sudden breathlessness or fainting, seek emergency medical care immediately. Do not wait for Sunday OPD.</p></div></div></div></div></section>
-      <section className="section faq-section"><div className="container faq-grid"><div><div className="eyebrow"><span className="line"/> USEFUL INFORMATION</div><h2>Frequently asked<br/><em>questions.</em></h2></div><div className="faq-list">{faqs.map(([question,answer])=><details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></div></section>
-      <div className="mobile-bottom-actions"><a className="mobile-bottom-primary" href="#clinic"><span aria-hidden="true">▦</span> Consultation</a><a className="mobile-bottom-map" href={mapHref} target="_blank" rel="noopener noreferrer" aria-label="View clinic location on Google Maps">⌖</a></div>
+      <section id="services" className="section services"><div className="shell"><div className="center-heading"><p className="eyebrow"><span/> How we can help <span/></p><h2>Comprehensive cardiac care,<br/><em>centered on you.</em></h2><p>From prevention and diagnosis to specialist cardiovascular assessment.</p></div><div className="service-grid">{specialties.map(([icon,title,description],i)=><article className="service-card" key={title}><div className="service-icon" aria-hidden="true">{icon}</div><span className="service-number">{String(i+1).padStart(2,"0")}</span><h3>{title}</h3><p>{description}</p></article>)}</div></div></section>
+      <section className="care-cta"><div className="shell care-inner"><div><p>आपके दिल की सेहत, हमारी प्राथमिकता</p><h2>Specialist heart care,<br/>closer to your family.</h2><span>Sunday consultations for patients in Ara, Bhojpur and nearby areas.</span></div><a href="#clinic" className="button button-light">Plan your visit <span>→</span></a></div></section>
+      <section id="clinic" className="section clinic"><div className="shell">
+        <div className="center-heading"><p className="eyebrow"><span/> Plan your visit <span/></p><h2>Sunday Cardiology OPD<br/><em>in Ara, Bihar.</em></h2></div>
+        <div className="clinic-grid"><article className="clinic-card"><p className="mini">Consultation location</p><h3>Dr. Rungta Clinic</h3><p className="address">K.G. Road, Ara<br/>Bhojpur, Bihar</p><dl><div><dt>OPD day</dt><dd>Every Sunday</dd></div><div><dt>Consultant</dt><dd>Dr. Sumit Sinha, DM Cardiology</dd></div><div><dt>Timings</dt><dd>Please confirm with the clinic</dd></div></dl><div className="clinic-buttons"><a className="button" href={mapUrl} target="_blank" rel="noopener noreferrer">Open in Maps <span>↗</span></a>{callUrl && <a className="button button-muted" href={callUrl}>Call clinic</a>}{whatsappUrl && <a className="button button-muted" target="_blank" rel="noopener noreferrer" href={whatsappUrl}>WhatsApp clinic</a>}</div>{!callUrl && <small className="pending">Appointment phone number and exact timings will be added once confirmed.</small>}</article>
+        <aside className="visit-card"><div className="bag-icon">✚</div><h3>Before your appointment</h3><p>Please bring previous prescriptions, ECG, echo or angiography reports, and a list of current medicines if available.</p><div className="emergency"><strong>Medical emergency?</strong><p>For severe or ongoing chest pain, sudden breathlessness or fainting, seek emergency medical care immediately. Do not wait for the Sunday OPD.</p></div></aside></div>
+      </div></section>
     </main>
-    <footer className="footer"><div className="container"><div className="footer-main"><div><div className="footer-brand">{iconPlus}<strong className="doctor-name">Dr. Sumit Sinha</strong></div><p>MBBS · MD (Medicine) · DM (Cardiology)</p><p>Sunday OPD · Dr. Rungta Clinic, K.G. Road, Ara</p></div><div className="footer-nav"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Visit Clinic</a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Dr. Sumit Sinha. All rights reserved.</span><span>Information is educational and does not replace medical evaluation.</span></div></div></footer>
+    <footer><div className="shell footer-main"><a className="brand footer-brand" href="#home"><span className="brand-icon">{cross}</span><span className="brand-words"><strong>Cardio<span>Sumit</span></strong><small>Dr. Sumit Sinha · Ara, Bihar</small></span></a><nav aria-label="Footer navigation"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#clinic">Clinic</a></nav></div><div className="shell footer-bottom"><span>© {new Date().getFullYear()} Dr. Sumit Sinha. All rights reserved.</span><span>Information is educational and does not replace medical evaluation.</span></div></footer>
+    <a className="mobile-book" href="#clinic">Consultation <span>→</span></a>
   </>;
 }
