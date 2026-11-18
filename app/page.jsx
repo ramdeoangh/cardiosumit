@@ -23,7 +23,7 @@ export default function Home() {
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,"\\u003c")}}/>
     <a href="#main" className="skip-link">Skip to content</a>
-    <div className="notice"><div className="shell notice-inner"><span className="notice-title"><i className="pulse"/> Sunday Cardiology OPD · Ara, Bihar</span><span className="notice-extra">Appointments: {site.contacts.map((contact, index) => <span className="notice-contact" key={contact.phone}>{index > 0 && <span className="contact-divider"> · </span>}{contact.name}: <a href={"tel:" + contact.phone}>{contact.label}</a></span>)}</span></div></div>
+    <div className="notice"><div className="shell notice-inner"><span className="notice-title"><i className="pulse"/> Sunday Cardiology OPD · Ara, Bihar</span><span className="notice-extra">Appointments: {site.contacts.map((contact, index) => <span className="notice-contact" key={contact.phone}>{index > 0 && <span className="contact-divider"> · </span>}<a href={"tel:" + contact.phone}>{contact.label}</a></span>)}</span></div></div>
     <header className="header" id="home"><div className="shell nav-wrap">
       <a className="brand" href="#home" aria-label="Dr. Sumit Sinha homepage"><span className="brand-icon">{cross}</span><span className="brand-words"><strong className="physician-brand">Dr. Sumit Sinha</strong><small>DM CARDIOLOGY</small></span></a>
       <nav className="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#clinic">Clinic</a></nav>
